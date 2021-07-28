@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,14 +18,18 @@ public class RockPaperScissors {
         Scanner scanner = new Scanner(System.in);
         
         while(true){
+            /* create string array for rock papers an scissors */
         String[] rps = {"r" , "p" , "s"};
-        
+        /**we create string computer move and 
+         * we want get a random computer move between an array from 0 to 1 for r , p ,s and 
+         * we pass 3 which is the length of the array*/
         String computerMove = rps[new Random().nextInt(rps.length)];
         
         
         String playerMove;
         
         while(true){
+       
         System.out.println("please enter your move(r,p or s)");
         playerMove = scanner.nextLine();
         
