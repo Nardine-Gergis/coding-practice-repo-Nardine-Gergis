@@ -17,7 +17,13 @@ public class RockPaperScissors {
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
         
-        while(true){
+        System.out.println("enter the number of rounds");
+        int r = scanner.nextInt();
+        
+        if (r>=1 && r <=10){
+            
+            for (int i =1 ; i<=r ; i++){
+       
             /*create a random array for rock , paper an scissors*/
         String[] rps = {"r" , "p" , "s"};
         /*create a random array from 0 to 1 for r,p and s*/
@@ -69,14 +75,15 @@ public class RockPaperScissors {
         }
         
     }
-            System.out.println("play again? (yes/no)");
-            String playAgain = scanner.nextLine();
+            }
+           
             
-            if(!playAgain.equals("yes")){
-                break;
+            else{
+                System.out.println("error");
             }
 }
         }
     }
 }
 }
+         
