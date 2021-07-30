@@ -15,12 +15,22 @@ import java.util.Scanner;
 public class RockPaperScissors {
     
     public static void main (String[] args){
+        
+        int compWin =0;
+        int userWin = 0;
+        int ties=0;
+        boolean continueGame =true;
+        
         Scanner scanner = new Scanner(System.in);
         
+        do{
+            
+       
         System.out.println("enter the number of rounds");
         int r = scanner.nextInt();
+        scanner.reset();
         
-        if (r>=1 && r <=10){
+        if (r>=1 && r <=10){  
             
             for (int i =1 ; i<=r ; i++){
        
@@ -43,7 +53,9 @@ public class RockPaperScissors {
             break;
         
         }
+        else{
         System.out.println(playerMove + " is not a valid move.");
+        }
         
         }
         /*check what the computer played or chose*/
@@ -51,39 +63,68 @@ public class RockPaperScissors {
         
         /* if the player move equals to the computer chose it said that the gams was tie*/
         if (playerMove.equals(computerMove)) {
-            
-            System.out.println("the game was a tie");
+            ties++;
+            System.out.println("the game was a tie" );
         }
         /*if the player chose rock and the computer chose paper then then the player lose the game*/
         else if ( playerMove.equals("r")){
-            if (computerMove.equals("p")){
-                System.out.println("you lose");
-            }else if ( computerMove.equals("s")){
-                System.out.println("you win");
+                if (computerMove.equals("p")){
+                    System.out.println("you lose");
+                    compWin++;
+                }else if ( computerMove.equals("s")){
+                          System.out.println("you win");
+                          userWin++;
+                        }
+                }
+        else if ( playerMove.equals("p")){
+                if (computerMove.equals("r")){
+                    System.out.println("you win");
+                    userWin++;
+                }else if ( computerMove.equals("s")){
+                        System.out.println("you lose");
+                        compWin++;
+                      }
         }
-            else if ( playerMove.equals("p")){
-            if (computerMove.equals("r")){
-                System.out.println("you win");
-            }else if ( computerMove.equals("s")){
-                System.out.println("you lose");
-        }
-            else if ( playerMove.equals("s")){
-            if (computerMove.equals("p")){
-                System.out.println("you win");
-            }else if ( computerMove.equals("r")){
-                System.out.println("you lose");
-        }
+        else if ( playerMove.equals("s")){
+                if (computerMove.equals("p")){
+                    System.out.println("you win");
+                    userWin++;
+                }else if ( computerMove.equals("r")){
+                         System.out.println("you lose");
+                         compWin++;
+                        }
         
-    }
+               }
             }
-           
             
-            else{
-                System.out.println("error");
+            System.out.println("user won "+ userWin);
+            System.out.println("computer won "+ compWin);
+            System.out.println("ties "+ ties);
+           
+            System.out.println("wouldu like to play again (y/n");
+            String answer = scanner.nextLine();
+            
+            if(answer.equals("n")){
+            
+                continueGame = false;
             }
-}
+        } 
+        
+        else{
+                System.out.println("invalid entry .. the range should be 1 to 10");
+                continueGame=false;
         }
+        } while(continueGame);
+        
+
+        
+    
+           
+       
+       // }
+       
+       
     }
 }
-}
-         
+
+        
